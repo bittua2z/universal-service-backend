@@ -1,4 +1,4 @@
-# Use an official OpenJDK runtime as a parent image
+ # Use an official OpenJDK runtime as a parent image
 FROM openjdk:17-jdk-slim
 
 # Set the working directory in the container
@@ -7,6 +7,9 @@ WORKDIR /app
 # Copy the Maven wrapper and pom.xml
 COPY mvnw pom.xml ./
 COPY .mvn .mvn
+
+# Make mvnw executable
+RUN chmod +x mvnw
 
 # Copy the source code
 COPY src ./src
